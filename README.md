@@ -1,5 +1,7 @@
 # an-array-of-catalan-words
 
+[🇬🇧 English](./README.md) · [🇨🇦 Català](./README.ca.md)
+
 [![NPM version](https://img.shields.io/npm/v/an-array-of-catalan-words.svg)](https://www.npmjs.com/package/an-array-of-catalan-words)
 
 List of ~891,000 Catalan words.
