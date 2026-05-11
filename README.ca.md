@@ -1,6 +1,6 @@
 # an-array-of-catalan-words
 
-[🇬🇧 English](./README.md) · [🇨🇦 Català](./README.ca.md)
+[English](./README.md) · [Català](./README.ca.md)
 
 [![Versió NPM](https://img.shields.io/npm/v/an-array-of-catalan-words.svg)](https://www.npmjs.com/package/an-array-of-catalan-words)
 
