@@ -1,0 +1,72 @@
+# an-array-of-catalan-words
+
+[![NPM version](https://img.shields.io/npm/v/an-array-of-catalan-words.svg)](https://www.npmjs.com/package/an-array-of-catalan-words)
+
+List of ~891,000 Catalan words.
+
+Derived from the [Softcatalà](https://github.com/softcatala/catalan-dict-tools) Hunspell dictionaries,
+processed and filtered to include only clean alphabetic words using the Catalan character set
+(`[a-zçàèéíïòóúü]`).
+
+Inspired by the architecture of [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
+by [Titus Wormer](https://github.com/wooorm).
+
+## Install
+
+```sh
+npm install an-array-of-catalan-words
+```
+
+## Use
+
+```js
+const words = require('an-array-of-catalan-words')
+
+console.log(words.length)     // ~891000
+console.log(words.slice(0, 5))
+// [ 'a', 'aaronítica', 'aaronítico', 'ab', 'abaceria' ]
+
+console.log(words.filter(w => w.startsWith('xoc')))
+// [ 'xoc', 'xocolata', 'xocolater', ... ]
+```
+
+## API
+
+The default export is a `string[]` of Catalan words.
+
+### TypeScript
+
+Types are included:
+
+```ts
+import words = require('an-array-of-catalan-words')
+
+const filtered: string[] = words.filter(w => w.length === 5)
+```
+
+## Dataset
+
+- **Source**: [catalan-dict-tools](https://github.com/softcatala/catalan-dict-tools) (Softcatalà)
+- **License**: GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1
+- **Words**: ~891,000 unique, lowercase Catalan words
+- **Filter**: Only characters matching `/^[a-zçàèéíïòóúü]+$/`
+
+## Build
+
+To regenerate `index.json` from source:
+
+```sh
+node setup.js               # Download catalan.dic and catalan.aff
+# Then expand the dictionary (requires hunspell-reader):
+npx hunspell-reader words -o data/raw_words.txt -s -u -l data/catalan.dic
+node build.js               # Clean, filter and generate index.json
+```
+
+## Credits
+
+- **Linguistic data**: [Softcatalà](https://github.com/softcatala/catalan-dict-tools)
+- **Architectural pattern**: [Titus Wormer (@wooorm)](https://github.com/wooorm) — [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
+
+## License
+
+(GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1) © Pablo G. Guízar
