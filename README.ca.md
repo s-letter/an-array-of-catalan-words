@@ -11,7 +11,7 @@ processada i filtrada per incloure únicament paraules alfabètiques netes del j
 (`[a-zçàèéíïòóúü]`).
 
 Inspirada en l'arquitectura d'[`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
-de [Titus Wormer](https://github.com/wooorm).
+de [Zeke Sikelianos](https://github.com/zeke).
 
 ## Instal·lació
 
@@ -66,7 +66,7 @@ node build.js               # Neteja, filtra i genera index.json
 ## Crèdits
 
 - **Dades lingüístiques**: [Softcatalà](https://github.com/softcatala/catalan-dict-tools)
-- **Patró arquitectònic**: [Titus Wormer (@wooorm)](https://github.com/wooorm) — [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
+- **Patró arquitectònic**: [Zeke Sikelianos (@zeke)](https://github.com/zeke) — [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
 
 ## Llicència
 

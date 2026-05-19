@@ -11,7 +11,7 @@ processed and filtered to include only clean alphabetic words using the Catalan 
 (`[a-zçàèéíïòóúü]`).
 
 Inspired by the architecture of [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
-by [Titus Wormer](https://github.com/wooorm).
+by [Zeke Sikelianos](https://github.com/zeke).
 
 ## Install
 
@@ -67,7 +67,7 @@ node build.js               # Clean, filter and generate index.json
 ## Credits
 
 - **Linguistic data**: [Softcatalà](https://github.com/softcatala/catalan-dict-tools)
-- **Architectural pattern**: [Titus Wormer (@wooorm)](https://github.com/wooorm) — [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
+- **Architectural pattern**: [Zeke Sikelianos (@zeke)](https://github.com/zeke) — [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
 
 ## License
 
