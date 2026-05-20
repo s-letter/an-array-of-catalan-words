@@ -4,6 +4,7 @@ const readline = require('readline');
 
 const INPUT_FILE = path.join(__dirname, 'data', 'raw_words.txt');
 const OUTPUT_FILE = path.join(__dirname, 'index.json');
+const DIC_FILE = path.join(__dirname, 'data', 'catalan.dic');
 
 // La expresión regular SOLO permite caracteres catalanes válidos en minúscula
 // Excluye guiones, apóstrofes, espacios, números
@@ -15,6 +16,33 @@ async function build() {
     console.error('Por favor, ejecuta "unmunch data/catalan.dic data/catalan.aff > data/raw_words.txt" primero.');
     process.exit(1);
   }
+
+  console.log('Iniciando procesamiento de catalan.dic para extraer palabras a excluir...');
+  const uppercaseRoots = new Set();
+  const properNounRoots = new Set();
+  const lowercaseRoots = new Set();
+  
+  if (fs.existsSync(DIC_FILE)) {
+    const dicContent = fs.readFileSync(DIC_FILE, 'utf8');
+    const lines = dicContent.split(/\r?\n/);
+    for (const line of lines) {
+      const root = line.split('/')[0];
+      if (!root) continue;
+      
+      if (/^[A-ZÇÀÈÉÍÏÒÓÚÜ]{2,}$/.test(root)) {
+        uppercaseRoots.add(root.toLowerCase());
+      } else if (/^[A-ZÇÀÈÉÍÏÒÓÚÜ][a-zçàèéíïòóúü]+$/.test(root)) {
+        properNounRoots.add(root.toLowerCase());
+      } else if (/^[a-zçàèéíïòóúü]+$/.test(root)) {
+        lowercaseRoots.add(root);
+      }
+    }
+  }
+  
+  const wordsToExclude = new Set(
+    [...uppercaseRoots, ...properNounRoots].filter(root => !lowercaseRoots.has(root))
+  );
+  console.log(`Detectadas ${wordsToExclude.size} palabras para excluir (acrónimos y nombres propios).`);
 
   console.log('Iniciando procesamiento de raw_words.txt...');
   
@@ -43,7 +71,7 @@ async function build() {
     word = word.normalize('NFC').toLowerCase();
 
     // Filtro Crítico
-    if (VALID_WORD_REGEX.test(word)) {
+    if (VALID_WORD_REGEX.test(word) && !wordsToExclude.has(word)) {
       wordsSet.add(word);
     }
   }

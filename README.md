@@ -4,11 +4,11 @@
 
 [![NPM version](https://img.shields.io/npm/v/an-array-of-catalan-words.svg)](https://www.npmjs.com/package/an-array-of-catalan-words)
 
-List of ~891,000 Catalan words.
+List of ~869,800 Catalan words.
 
 Derived from the [Softcatalà](https://github.com/softcatala/catalan-dict-tools) Hunspell dictionaries,
 processed and filtered to include only clean alphabetic words using the Catalan character set
-(`[a-zçàèéíïòóúü]`).
+(`[a-zçàèéíïòóúü]`). Acronyms and proper nouns are explicitly excluded.
 
 Inspired by the architecture of [`an-array-of-english-words`](https://github.com/words/an-array-of-english-words)
 by [Zeke Sikelianos](https://github.com/zeke).
@@ -24,7 +24,7 @@ npm install an-array-of-catalan-words
 ```js
 const words = require('an-array-of-catalan-words')
 
-console.log(words.length)     // ~891000
+console.log(words.length)     // 869829
 console.log(words.slice(0, 5))
 // [ 'a', 'aaronítica', 'aaronítico', 'ab', 'abaceria' ]
 
@@ -50,8 +50,8 @@ const filtered: string[] = words.filter(w => w.length === 5)
 
 - **Source**: [catalan-dict-tools](https://github.com/softcatala/catalan-dict-tools) (Softcatalà)
 - **License**: GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1
-- **Words**: ~891,000 unique, lowercase Catalan words
-- **Filter**: Only characters matching `/^[a-zçàèéíïòóúü]+$/`
+- **Words**: ~869,800 unique, lowercase Catalan words
+- **Filter**: Only characters matching `/^[a-zçàèéíïòóúü]+$/`. Acronyms and proper nouns are excluded.
 
 ## Build
 
