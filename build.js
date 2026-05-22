@@ -9,6 +9,7 @@ const DIC_FILE = path.join(__dirname, 'data', 'catalan.dic');
 // La expresión regular SOLO permite caracteres catalanes válidos en minúscula
 // Excluye guiones, apóstrofes, espacios, números
 const VALID_WORD_REGEX = /^[a-zçàèéíïòóúü]+$/;
+const HAS_VOWEL_REGEX = /[aeiouàèéíïòóúü]/;
 
 async function build() {
   if (!fs.existsSync(INPUT_FILE)) {
@@ -71,7 +72,7 @@ async function build() {
     word = word.normalize('NFC').toLowerCase();
 
     // Filtro Crítico
-    if (VALID_WORD_REGEX.test(word) && !wordsToExclude.has(word)) {
+    if (VALID_WORD_REGEX.test(word) && HAS_VOWEL_REGEX.test(word) && !wordsToExclude.has(word)) {
       wordsSet.add(word);
     }
   }

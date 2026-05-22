@@ -1,7 +1,7 @@
 {
   "name": "an-array-of-catalan-words",
-  "version": "1.0.1",
-  "description": "List of ~891,000 Catalan words",
+  "version": "1.0.2",
+  "description": "List of ~869,500 Catalan words",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
