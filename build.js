@@ -30,10 +30,8 @@ async function build() {
       const root = line.split('/')[0];
       if (!root) continue;
       
-      if (/^[A-ZÇÀÈÉÍÏÒÓÚÜ]{2,}$/.test(root)) {
+      if (/[A-ZÇÀÈÉÍÏÒÓÚÜ]/.test(root)) {
         uppercaseRoots.add(root.toLowerCase());
-      } else if (/^[A-ZÇÀÈÉÍÏÒÓÚÜ][a-zçàèéíïòóúü]+$/.test(root)) {
-        properNounRoots.add(root.toLowerCase());
       } else if (/^[a-zçàèéíïòóúü]+$/.test(root)) {
         lowercaseRoots.add(root);
       }

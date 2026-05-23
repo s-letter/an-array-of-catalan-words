@@ -24,7 +24,7 @@ npm install an-array-of-catalan-words
 ```js
 const words = require('an-array-of-catalan-words')
 
-console.log(words.length)     // 869553
+console.log(words.length)     // 869422
 console.log(words.slice(0, 5))
 // [ 'a', 'aa', 'aaleniana', 'aalenianes', 'aalenians' ]
 
